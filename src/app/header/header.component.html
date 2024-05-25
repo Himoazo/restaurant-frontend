@@ -1,0 +1,25 @@
+<header>
+    <p class="logo"><a routerLink="/home">Fetch Burger</a></p>
+    <button class="menu-btn open" id="open-menu" (click)="toggleMenu()">
+        <span class="menu-icon">
+            <span class="bars"></span>
+            <span class="bars"></span>
+            <span class="bars"></span>
+        </span>
+        <span class="menu-text">Meny</span>
+    </button>
+    <nav id="nav-menu">
+        <button class="menu-btn close" id="close-menu" (click)="toggleMenu()">
+            <span class="menu-icon">
+                <span class="bars cross1"></span>
+                <span class="bars cross2"></span>
+            </span>
+            <span class="menu-text">Stäng</span>
+        </button>
+        <ul>
+            <li><a routerLink="/home" routerLinkActive="active">Startsida</a></li>
+            <li><a routerLink="#" routerLinkActive="active">placeholder</a></li>
+            <li><a routerLink="#" routerLinkActive="active">placeholder</a></li>
+        </ul>
+    </nav>
+  </header>
