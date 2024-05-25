@@ -1,0 +1,67 @@
+
+<div class="intro">
+    <div class="heroPicContainer">
+        <img id="burgerPic" [src]="burgerPic" alt="bild på en hamburgare">
+    </div>
+    
+    <div class="hero">
+        <h1 class="title">Fetch(Burger)</h1>
+        <h2 class="subtitle">Tugga på Saftiga Hamburgare och Oemotståndliga Sidorätter</h2>
+        <p class="description">
+          Välkommen till vårt buggfria hamburgarhak! Här serverar vi saftiga hamburgare med premiumingredienser.
+          Från klassiska ostburgare till gourmetkreationer – vår meny tillfredsställer alla smaklökar.
+          Kombinera din burgare med krispiga pommes frites, krämig coleslaw eller smakrika lökringar.
+          Kom hungrig, gå nöjd!
+        </p>
+      </div>
+</div>
+
+<div class="cards" >
+    <mat-card class="cardContainer" *ngFor="let meal of menu.meals">
+    <mat-card-header >
+      <mat-card-title class="cardTitle">{{ meal.name }}</mat-card-title>
+      <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+    </mat-card-header>
+    <mat-card-content class="cardContent">
+      <p>{{ meal.ingredients }}</p>
+      <p> (Singel): {{ meal.prices.Singel }}</p>
+      <p> (Dubbel): {{ meal.prices.Double }}</p>
+    </mat-card-content>
+    <mat-card-actions class="cardActions">
+      <button mat-button color="accent">Beställ</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+  
+
+  <div class="cards" >
+    <mat-card class="cardContainer" *ngFor="let side of menu.sides">
+    <mat-card-header >
+      <mat-card-title class="cardTitle">{{ side.name }}</mat-card-title>
+      <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+    </mat-card-header>
+    <mat-card-content class="cardContent">
+      <p>Stor: {{ side.prices.big }}</p>
+      <p>Liten: {{ side.prices.small }}</p>
+    </mat-card-content>
+    <mat-card-actions class="cardActions">
+      <button mat-button color="accent">Beställ</button>
+    </mat-card-actions>
+  </mat-card>
+  </div>
+  
+  <div class="cards" >
+    <mat-card class="cardContainer" *ngFor="let dipp of menu.dipps">
+    <mat-card-header >
+      <mat-card-title class="cardTitle">{{ dipp.name }}</mat-card-title>
+      <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+    </mat-card-header>
+    <mat-card-content class="cardContent">
+      <p> {{ dipp.price }}</p>
+    </mat-card-content>
+    <mat-card-actions class="cardActions">
+      <button mat-button color="accent">Beställ</button>
+    </mat-card-actions>
+  </mat-card>
+  </div>
+  
