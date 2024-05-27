@@ -9,13 +9,13 @@ header {
     justify-content: space-between;
     align-items: center;
 }
-.logo{
+/* .logo{
     height: 85;
     width: 100;
     cursor: pointer;
-    a{
-        text-decoration: none;
-    }
+} */
+#logo{
+    cursor: pointer;
 }
 
 /* Design av meny för mobilenheter, placeras till höger om skärmen */

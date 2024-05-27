@@ -20,7 +20,6 @@
     <mat-card class="cardContainer" *ngFor="let meal of menu.meals">
     <mat-card-header >
       <mat-card-title class="cardTitle">{{ meal.name }}</mat-card-title>
-      <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
     </mat-card-header>
     <mat-card-content class="cardContent">
       <p>{{ meal.ingredients }}</p>
@@ -28,7 +27,8 @@
       <p> (Dubbel): {{ meal.prices.Double }}</p>
     </mat-card-content>
     <mat-card-actions class="cardActions">
-      <button mat-button color="accent">Beställ</button>
+      <button mat-button color="accent" (click)="menuItem(meal, 'meal', meal.prices.Singel)">Beställ Singel</button>
+      <button mat-button color="accent" (click)="menuItem(meal, 'meal', meal.prices.Double)">Beställ Dubbel</button>
     </mat-card-actions>
   </mat-card>
 </div>
@@ -38,14 +38,14 @@
     <mat-card class="cardContainer" *ngFor="let side of menu.sides">
     <mat-card-header >
       <mat-card-title class="cardTitle">{{ side.name }}</mat-card-title>
-      <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
     </mat-card-header>
     <mat-card-content class="cardContent">
       <p>Stor: {{ side.prices.big }}</p>
       <p>Liten: {{ side.prices.small }}</p>
     </mat-card-content>
     <mat-card-actions class="cardActions">
-      <button mat-button color="accent">Beställ</button>
+      <button mat-button color="accent" (click)="menuItem(side, 'side', side.prices.big)">Beställ</button>
+      <button mat-button color="accent" (click)="menuItem(side, 'side', side.prices.small)">Beställ</button>
     </mat-card-actions>
   </mat-card>
   </div>
@@ -54,13 +54,12 @@
     <mat-card class="cardContainer" *ngFor="let dipp of menu.dipps">
     <mat-card-header >
       <mat-card-title class="cardTitle">{{ dipp.name }}</mat-card-title>
-      <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
     </mat-card-header>
     <mat-card-content class="cardContent">
       <p> {{ dipp.price }}</p>
     </mat-card-content>
     <mat-card-actions class="cardActions">
-      <button mat-button color="accent">Beställ</button>
+      <button mat-button color="accent" (click)="menuItem(dipp, 'dipp', dipp.price)">Beställ</button>
     </mat-card-actions>
   </mat-card>
   </div>
