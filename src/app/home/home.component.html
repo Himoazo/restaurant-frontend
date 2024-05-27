@@ -27,8 +27,8 @@
       <p> (Dubbel): {{ meal.prices.Double }}</p>
     </mat-card-content>
     <mat-card-actions class="cardActions">
-      <button mat-button color="accent" (click)="menuItem(meal, 'meal', meal.prices.Singel)">Beställ Singel</button>
-      <button mat-button color="accent" (click)="menuItem(meal, 'meal', meal.prices.Double)">Beställ Dubbel</button>
+      <button mat-button color="accent" (click)="menuItem(meal, meal.name, 'meal', meal.prices.Singel)">Beställ Singel</button>
+      <button mat-button color="accent" (click)="menuItem(meal, meal.name, 'meal', meal.prices.Double)">Beställ Dubbel</button>
     </mat-card-actions>
   </mat-card>
 </div>
@@ -44,8 +44,8 @@
       <p>Liten: {{ side.prices.small }}</p>
     </mat-card-content>
     <mat-card-actions class="cardActions">
-      <button mat-button color="accent" (click)="menuItem(side, 'side', side.prices.big)">Beställ</button>
-      <button mat-button color="accent" (click)="menuItem(side, 'side', side.prices.small)">Beställ</button>
+      <button mat-button color="accent" (click)="menuItem(side, side.name, 'side', side.prices.big)">Beställ</button>
+      <button mat-button color="accent" (click)="menuItem(side, side.name, 'side', side.prices.small)">Beställ</button>
     </mat-card-actions>
   </mat-card>
   </div>
@@ -59,8 +59,13 @@
       <p> {{ dipp.price }}</p>
     </mat-card-content>
     <mat-card-actions class="cardActions">
-      <button mat-button color="accent" (click)="menuItem(dipp, 'dipp', dipp.price)">Beställ</button>
+      <button mat-button color="accent" (click)="menuItem(dipp, dipp.name, 'dipp', dipp.price)">Beställ</button>
     </mat-card-actions>
   </mat-card>
   </div>
   
+  <div>
+    <button mat-fab color="warn"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="shopping_cart" mat-button>
+
+    </mat-icon></button>
+  </div>

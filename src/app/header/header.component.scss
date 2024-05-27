@@ -9,11 +9,7 @@ header {
     justify-content: space-between;
     align-items: center;
 }
-/* .logo{
-    height: 85;
-    width: 100;
-    cursor: pointer;
-} */
+
 #logo{
     cursor: pointer;
 }
@@ -48,13 +44,13 @@ nav li {
 nav a {
     color: white;
     text-decoration: none;
-    padding:1.5em;
+    padding:1.1em;
 }
 
 nav li:hover {
     background-color: #94d2bd;
     cursor: pointer;
-    padding: 1.5em 0;
+    padding: 1.1em 0;
 }
 
 /* Meny knapp, öppna meny */
@@ -114,18 +110,6 @@ nav li:hover {
     transform: rotate(135deg);
     position: relative;
     top: -3px;
-}
-
-/* Main content */
-#mainHead{
-    text-align: center;
-    margin-top: 2vh;
-}
-
-p{
-    text-align: center;
-    margin-top: 1vh;
-    font-size: 1.5em;
 }
 
 a.active{

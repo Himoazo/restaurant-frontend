@@ -1,1 +1,53 @@
-<p>order works!</p>
+<h2>Kassa</h2>
+<div *ngFor="let item of selectedItems">
+    <h3> {{item.itemName}} </h3>
+    <p> {{item.price}} X {{item.quantity}} </p>
+    <div>
+        <button (click)="increment(item)">+</button>
+        {{item.quantity}}
+        <button (click)="decrement(item)">-</button>
+    </div>
+</div>
+
+<div> {{ totalCost() }} </div>
+
+
+<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+  </button> -->
+  <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Vad heter du?</ng-template>
+        <mat-form-field>
+          <mat-label>Namn</mat-label>
+          <input matInput placeholder="för- och efternamn" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Nästa</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>vad har du för mejladress?</ng-template>
+        <mat-form-field>
+          <mat-label>E-mail</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="Ex. exempel@mail.se"
+                 required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Backa</button>
+          <button mat-button matStepperNext>Nästa</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Klart!</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Backa</button>
+        <button mat-button (click)="stepper.reset()">Återställ</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
