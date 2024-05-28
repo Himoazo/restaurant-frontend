@@ -5,12 +5,14 @@ import { CommonModule } from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
-
+import {MatMenuModule} from '@angular/material/menu';
+import { RouterLink } from '@angular/router';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule],
+  imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule, MatMenuModule, RouterLink, MatBadgeModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

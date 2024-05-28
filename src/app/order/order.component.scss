@@ -1,0 +1,102 @@
+/* Orderoverview */
+h2{
+    width: fit-content;
+    margin: 1% auto;
+}
+.orderOverview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem auto;
+    max-width: 800px;
+  
+    /* item */
+    .item {
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 0.5rem;
+      background-color: #f9f9f9;
+  
+      h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+  
+      p {
+        font-size: 1rem;
+        color: #555;
+      }
+  
+      button {
+        font-size: 1rem;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 0.3rem;
+        padding: 0.3rem 0.5rem;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+  
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+    }
+  
+    /* Total kostnad */
+    .total-cost {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      color: #333;
+    }
+  }
+  
+  /* Stepper */
+  #step{
+    background-color: rebeccapurple;
+    width: fit-content;
+    margin: 0 auto;
+  }
+  
+  .mat-stepper {
+    max-width: 600px;
+    margin: 2rem auto;
+  
+    .mat-step-content {
+      padding: 1rem;
+    }
+  
+    .stepButton {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 0.3rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+  
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+  
+  /* Kvitto */
+  .kvitto {
+    background-color: beige;
+    margin: 2rem auto;
+    max-width: 600px;
+    text-align: center;
+  
+    h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+  
+    p {
+      font-size: 1rem;
+      color: #555;
+    }
+  }
+  

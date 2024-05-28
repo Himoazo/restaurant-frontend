@@ -23,10 +23,6 @@
     
   }
 
-.mat-mdc-card{
-    width: fit-content;
-    background-color: black;
-}
 
 .cards{
     width: 80%;
@@ -74,30 +70,55 @@
       display: flex;
       justify-content: flex-end;
       padding: 8px;
-      button {
-        background-color: #ff5722;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        padding: 4px 8px;
-        font-size: 14px;
-        transition: background-color 0.2s ease;
-        &:hover {
-          background-color: #e64a19;
-        }
-      }
     }
   }
-  
+  //shopping cart
+  .cart{
+    width: fit-content;
+    margin: 0 auto;
+    position: sticky;
+    top: 10%; 
+    z-index: 999;
+  }
+
+//Om oss
+.about {
+  width: fit-content;
+  max-width: 85%;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  padding: 2%;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.about h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.about p {
+    font-size: 1rem;
+    line-height: 1.5;
+    max-width: 75ch;
+}
+#adress{
+  width: fit-content;
+  padding: 2%;
+  border-radius: 8px;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 
   @media screen and (max-width: 800px) {
     .intro{
         background-color: white;
         opacity: 0.6;
-    background-image: url("/assets/hamburgerTransparent.jpg"); 
-    background-size: cover; 
-    background-position: center;
+        background-image: url("/assets/hamburgerTransparent.jpg"); 
+        background-size: cover; 
+        background-position: center;
+        font-weight: bolder;
     }
     .heroPicContainer {
         display: none;
@@ -109,3 +130,5 @@
     color: black;
     }
   }
+
+  

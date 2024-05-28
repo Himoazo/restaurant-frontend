@@ -9,11 +9,20 @@
         <h2 class="subtitle">Tugga på Saftiga Hamburgare och Oemotståndliga Sidorätter</h2>
         <p class="description">
           Välkommen till vårt buggfria hamburgarhak! Här serverar vi saftiga hamburgare med premiumingredienser.
-          Från klassiska ostburgare till gourmetkreationer – vår meny tillfredsställer alla smaklökar.
+          Från klassiska ostburgare till gourmetkreationer vår meny tillfredsställer alla smaklökar.
           Kombinera din burgare med krispiga pommes frites, krämig coleslaw eller smakrika lökringar.
           Kom hungrig, gå nöjd!
         </p>
       </div>
+</div>
+
+<div class="cart">
+  <button mat-fab color="warn" [matMenuTriggerFor]="list" matBadge={{selectedItems.length}}>
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="shopping_cart" mat-button></mat-icon>
+  </button>
+  <mat-menu #list="matMenu">
+    <span mat-menu-item routerLink="/order" *ngFor="let item of selectedItems">{{item.itemName}}</span>
+  </mat-menu>
 </div>
 
 <div class="cards" >
@@ -27,8 +36,8 @@
       <p> (Dubbel): {{ meal.prices.Double }}</p>
     </mat-card-content>
     <mat-card-actions class="cardActions">
-      <button mat-button color="accent" (click)="menuItem(meal, meal.name, 'meal', meal.prices.Singel)">Beställ Singel</button>
-      <button mat-button color="accent" (click)="menuItem(meal, meal.name, 'meal', meal.prices.Double)">Beställ Dubbel</button>
+      <button mat-raised-button color="primary" (click)="menuItem(meal, meal.name, 'meal', meal.prices.Singel)">Beställ Singel</button>
+      <button mat-raised-button color="primary" (click)="menuItem(meal, meal.name, 'meal', meal.prices.Double)">Beställ Dubbel</button>
     </mat-card-actions>
   </mat-card>
 </div>
@@ -44,8 +53,8 @@
       <p>Liten: {{ side.prices.small }}</p>
     </mat-card-content>
     <mat-card-actions class="cardActions">
-      <button mat-button color="accent" (click)="menuItem(side, side.name, 'side', side.prices.big)">Beställ</button>
-      <button mat-button color="accent" (click)="menuItem(side, side.name, 'side', side.prices.small)">Beställ</button>
+      <button mat-raised-button color="primary" (click)="menuItem(side, side.name, 'side', side.prices.big)">Beställ {{ side.prices.big }}</button>
+      <button mat-raised-button color="primary" (click)="menuItem(side, side.name, 'side', side.prices.small)">Beställ {{ side.prices.small }}</button>
     </mat-card-actions>
   </mat-card>
   </div>
@@ -59,13 +68,29 @@
       <p> {{ dipp.price }}</p>
     </mat-card-content>
     <mat-card-actions class="cardActions">
-      <button mat-button color="accent" (click)="menuItem(dipp, dipp.name, 'dipp', dipp.price)">Beställ</button>
+      <button mat-raised-button color="primary" (click)="menuItem(dipp, dipp.name, 'dipp', dipp.price)">Beställ</button>
     </mat-card-actions>
   </mat-card>
   </div>
   
-  <div>
-    <button mat-fab color="warn"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="shopping_cart" mat-button>
-
-    </mat-icon></button>
-  </div>
+ <div class="about">
+    <h3> Lite info om oss: </h3>
+    <p>
+      Vi använder enbart färska och lokala råvaror i våra rätter. Våra hamburgare är gjorda av nötkött från 
+      närliggande gårdar. Men det finns en hemlig ingrediens som vi lägger till i våra burgare vilket är: kärlek! 
+      Varje burgare är kryddad med en nypa kärlek och en extra dos omtanke.
+    </p>
+    <p>
+      Om du vill äta hos oss så så har vi en mysig inredning och en uteservering där du kan njuta av solen. 
+      Annars kan du alltid beställa take away online. 
+    </p>
+    <p id="adress">
+      Vi finns på: <br>
+      Önevägen 99, 845 96. <br>
+      tel: 0771 22 11 22
+    </p>
+    <p>
+      och våra öppettider är: <br>
+      <strong> Alla dagar 11 - 23</strong> <br> om inget annat anges här.
+    </p>
+ </div>

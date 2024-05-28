@@ -1,5 +1,7 @@
 <h2>Kassa</h2>
-<div *ngFor="let item of selectedItems">
+<div class="orderOverview">
+  @if(selectedItems){
+  <div *ngFor="let item of selectedItems" class="item">
     <h3> {{item.itemName}} </h3>
     <p> {{item.price}} X {{item.quantity}} </p>
     <div>
@@ -8,46 +10,83 @@
         <button (click)="decrement(item)">-</button>
     </div>
 </div>
+}
 
-<div> {{ totalCost() }} </div>
+@if(selectedItems){
+  <div class="total-cost"> Totalt: {{ totalCost() }} kr</div>
+}
+</div>
 
 
-<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-  </button> -->
-  <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
-    <mat-step [stepControl]="firstFormGroup">
-      <form [formGroup]="firstFormGroup">
+
+
+<div id="step" *ngIf="selectedItems && selectedItems.length > 0">
+  <mat-stepper orientation="vertical" [linear]="isLinear" #stepper class="mat-stepper">
+    <mat-step [stepControl]="customerName" class="mat-step-header">
+      <form [formGroup]="customerName" class="stepForm">
         <ng-template matStepLabel>Vad heter du?</ng-template>
         <mat-form-field>
           <mat-label>Namn</mat-label>
-          <input matInput placeholder="för- och efternamn" formControlName="firstCtrl" required>
+          <input matInput placeholder="för- och efternamn" formControlName="name"  required>
         </mat-form-field>
         <div>
-          <button mat-button matStepperNext>Nästa</button>
+          <button mat-flat-button color="primary" matStepperNext>Nästa</button>
         </div>
       </form>
     </mat-step>
-    <mat-step [stepControl]="secondFormGroup">
-      <form [formGroup]="secondFormGroup">
+    <mat-step [stepControl]="customerEmail" class="mat-step-header">
+      <form [formGroup]="customerEmail" class="stepForm">
         <ng-template matStepLabel>vad har du för mejladress?</ng-template>
         <mat-form-field>
           <mat-label>E-mail</mat-label>
-          <input matInput formControlName="secondCtrl" placeholder="Ex. exempel@mail.se"
+          <input  matInput formControlName="email" placeholder="Ex. exempel@mail.se"
                  required>
+                 <mat-error>
+                  <span class="errorSpan" *ngIf="customerEmail.controls['email'].invalid && customerEmail.controls['email'].touched">
+                  Ange ett giltigt E-post</span>
+                </mat-error>
+                
         </mat-form-field>
         <div>
           <button mat-button matStepperPrevious>Backa</button>
-          <button mat-button matStepperNext>Nästa</button>
+          <button mat-flat-button color="primary" matStepperNext>Nästa</button>
         </div>
       </form>
     </mat-step>
     <mat-step>
-      <ng-template matStepLabel>Klart!</ng-template>
-      <p>You are now done.</p>
+      <ng-template matStepLabel>Bekräfta order</ng-template>
+
+      @if(kvitto == false){
+      <div class="kvitto">
+          <p>Beställningsdetaljer</p>
+      <div *ngFor="let item of selectedItems">
+       
+        <p> {{item.itemName}} X {{item.quantity}} </p>
+        
+      </div>
+      <span class="total-cost"> totalt: {{ totalCost() }} sek </span>
+
+      </div>
+        
+      }
+      
       <div>
-        <button mat-button matStepperPrevious>Backa</button>
-        <button mat-button (click)="stepper.reset()">Återställ</button>
+        <button mat-button color="warn" (click)="stepper.reset()">Återställ</button>
+        <button mat-flat-button color="primary" (click)="checkOut()">Beställ</button>
+        
       </div>
     </mat-step>
   </mat-stepper>
+</div>
+  @if(kvitto){
+    <div class="kvitto">
+      <p> <strong>Klart! Maten kan hämtas om ca 20 minuter</strong> </p>
+      <div *ngFor="let item of selectedItems">
+        <h3> {{item.itemName}} </h3>
+        <p> {{item.price}} X {{item.quantity}} </p>
+    </div>
+    <span> totalt: {{ totalCost() }} sek <br>
+     <strong>Betalas vid mathämtning</strong> 
+    </span>
+    </div>
+  }

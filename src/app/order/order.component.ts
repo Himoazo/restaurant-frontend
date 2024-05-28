@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, Validators, FormsModule, ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatStepperModule} from '@angular/material/stepper';
-
+import { Order } from '../models/order';
+import { OrderService } from '../services/order.service';
 
 @Component({
   selector: 'app-order',
@@ -16,6 +17,12 @@ import {MatStepperModule} from '@angular/material/stepper';
   styleUrl: './order.component.scss'
 })
 export class OrderComponent {
+
+  constructor(private orderService: OrderService, private _formBuilder: FormBuilder) {}
+  isLinear = true; //Stepper
+
+  
+  
   //Order items
   selectedItems: {
     menuItem: string;
@@ -67,14 +74,53 @@ decrement(item: any): void {
       this.getSavedItems();
   }
 }
+//Customer info
+customerName = this._formBuilder.group({
+  name: ['', Validators.required],
+});
+customerEmail = this._formBuilder.group({
+  email: ['', Validators.email],
+});
 
-constructor(private _formBuilder: FormBuilder) {}
-//Angular material stepper
-firstFormGroup = this._formBuilder.group({
-  firstCtrl: ['', Validators.required],
-});
-secondFormGroup = this._formBuilder.group({
-  secondCtrl: ['', Validators.required],
-});
-isLinear = true;
+
+//order object
+order = {}
+checkOut():void{
+  let nameFromForm; 
+  let emailFromForm;
+
+    if(typeof this.customerName.value.name ==="string" && this.customerName.value.name != null && 
+    typeof this.customerEmail.value.email === "string" && this.customerEmail.value.email != null){
+      nameFromForm = this.customerName.value.name;
+      emailFromForm = this.customerEmail.value.email;
+    }else{
+      console.log("incorrect customer info");
+    }
+  const customerOrder = {
+    customer: {
+      name: this.customerName.value.name,
+      email: this.customerEmail.value.email
+      },
+      items: this.selectedItems,
+      total: this.totalCost(),
+      status: 'pending'
+      }
+  this.order = customerOrder;
+  this.placeOrder();
+}
+
+kvitto: boolean = false;
+placeOrder():void{
+  console.log(this.order);
+  this.orderService.addOrder(this.order as unknown as Order).subscribe({
+    next: ()=>{
+      this.kvitto = true;
+      localStorage.removeItem("items");
+    },
+    error: (error)=>{
+      console.log(error);
+    }
+  });
+}
+
 }
