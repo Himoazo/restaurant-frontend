@@ -11,7 +11,8 @@ export class OrderService {
   constructor(private http: HttpClient) { }
 
   //Place order
-  addOrder(order: Order) :Observable<any>{
-    return this.http.post(this.url, order);
+  addOrder(order: Order): Observable<Order> {
+    return this.http.post<Order>(this.url, order);
   }
+
 }

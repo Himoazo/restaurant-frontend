@@ -43,7 +43,7 @@ export class OrderComponent {
   const storedItems =localStorage.getItem("items");
   if(storedItems){
     this.selectedItems = JSON.parse(storedItems);
-    console.log(this.selectedItems);
+    /* console.log(this.selectedItems); */
   }
 }
 
@@ -84,35 +84,31 @@ customerEmail = this._formBuilder.group({
 
 
 //order object
-order = {}
+order! :Order;
 checkOut():void{
-  let nameFromForm; 
-  let emailFromForm;
 
     if(typeof this.customerName.value.name ==="string" && this.customerName.value.name != null && 
     typeof this.customerEmail.value.email === "string" && this.customerEmail.value.email != null){
-      nameFromForm = this.customerName.value.name;
-      emailFromForm = this.customerEmail.value.email;
+      
+      this.order = {
+        customer: {
+          name: this.customerName.value.name,
+          email: this.customerEmail.value.email
+          },
+          items: this.selectedItems,
+          total: this.totalCost(),
+          status: 'pending'
+          } 
     }else{
       console.log("incorrect customer info");
     }
-  const customerOrder = {
-    customer: {
-      name: this.customerName.value.name,
-      email: this.customerEmail.value.email
-      },
-      items: this.selectedItems,
-      total: this.totalCost(),
-      status: 'pending'
-      }
-  this.order = customerOrder;
   this.placeOrder();
 }
 
 kvitto: boolean = false;
 placeOrder():void{
-  console.log(this.order);
-  this.orderService.addOrder(this.order as unknown as Order).subscribe({
+  console.log(this.order + "från component");
+  this.orderService.addOrder(this.order as Order).subscribe({
     next: ()=>{
       this.kvitto = true;
       localStorage.removeItem("items");
