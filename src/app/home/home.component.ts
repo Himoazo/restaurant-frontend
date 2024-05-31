@@ -9,13 +9,14 @@ import {MatMenuModule} from '@angular/material/menu';
 import { RouterLink } from '@angular/router';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { ContactComponent } from "../contact/contact.component";
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule, MatMenuModule, RouterLink, MatBadgeModule],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+    selector: 'app-home',
+    standalone: true,
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.scss',
+    imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule, MatMenuModule, RouterLink, MatBadgeModule, ContactComponent]
 })
 export class HomeComponent {
   //background img

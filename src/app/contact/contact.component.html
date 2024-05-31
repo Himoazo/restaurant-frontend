@@ -1,0 +1,27 @@
+<h4>Kontakta oss</h4>
+<form [formGroup]="contactForm" (ngSubmit)="sendMessage()">
+    @if(formError){
+        <p class="errorSpan"> {{formError}} </p>
+    }
+    <div>
+        <label for="customername">Namn:</label>
+        <span class="errorSpan" *ngIf="contactForm.controls['customername'].invalid && contactForm.controls['customername'].touched">Fyll i namnet</span>
+        <input type="text" id="customername" name="customername" formControlName="customername">
+      </div>
+      
+      <div>
+        <label for="email">Email:</label>
+        <span class="errorSpan" *ngIf="contactForm.controls['email'].invalid && contactForm.controls['email'].touched">Fyll i gilltig mejladress</span>
+        <input type="email" id="email" name="email" formControlName="email">
+      </div>
+      
+      <div>
+        <label for="message">Meddelande:</label>
+        <span class="errorSpan" *ngIf="contactForm.controls['message'].invalid && contactForm.controls['message'].touched"> Skriv meddelande</span>
+        <textarea type="text" id="message" name="message" formControlName="message"></textarea>
+      </div>
+      
+      <div>
+        <button mat-flat-button color="primary" [disabled]="!contactForm.valid">Skicka</button>
+      </div>
+</form>
