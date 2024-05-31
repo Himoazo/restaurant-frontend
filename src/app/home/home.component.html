@@ -24,51 +24,53 @@
     <span mat-menu-item routerLink="/order" *ngFor="let item of selectedItems">{{item.itemName}}</span>
   </mat-menu>
 </div>
-
+<h3>Hamburgare</h3>
 <div class="cards" >
+    
     <mat-card class="cardContainer" *ngFor="let meal of menu.meals">
     <mat-card-header >
       <mat-card-title class="cardTitle">{{ meal.name }}</mat-card-title>
     </mat-card-header>
     <mat-card-content class="cardContent">
       <p>{{ meal.ingredients }}</p>
-      <p> (Singel): {{ meal.prices.Singel }}</p>
-      <p> (Dubbel): {{ meal.prices.Double }}</p>
+      <p> Singel: {{ meal.prices.Singel }} :-</p>
+      <p> Dubbel: {{ meal.prices.Double }} :-</p>
     </mat-card-content>
     <mat-card-actions class="cardActions">
-      <button mat-raised-button color="primary" (click)="menuItem(meal, meal.name, 'meal', meal.prices.Singel)">Beställ Singel</button>
-      <button mat-raised-button color="primary" (click)="menuItem(meal, meal.name, 'meal', meal.prices.Double)">Beställ Dubbel</button>
+      <button mat-stroked-button color="primary" (click)="menuItem(meal, meal.name, 'meal', meal.prices.Singel)">Beställ Singel</button>
+      <button mat-stroked-button color="primary" (click)="menuItem(meal, meal.name, 'meal', meal.prices.Double)">Beställ Dubbel</button>
     </mat-card-actions>
   </mat-card>
 </div>
   
-
+<h3>Sidorätter</h3>
   <div class="cards" >
     <mat-card class="cardContainer" *ngFor="let side of menu.sides">
     <mat-card-header >
       <mat-card-title class="cardTitle">{{ side.name }}</mat-card-title>
     </mat-card-header>
     <mat-card-content class="cardContent">
-      <p>Stor: {{ side.prices.big }}</p>
-      <p>Liten: {{ side.prices.small }}</p>
+      <p>Stor: {{ side.prices.big }} :-</p>
+      <p>Liten: {{ side.prices.small }} :-</p>
     </mat-card-content>
     <mat-card-actions class="cardActions">
-      <button mat-raised-button color="primary" (click)="menuItem(side, side.name, 'side', side.prices.big)">Beställ {{ side.prices.big }}</button>
-      <button mat-raised-button color="primary" (click)="menuItem(side, side.name, 'side', side.prices.small)">Beställ {{ side.prices.small }}</button>
+      <button mat-stroked-button color="primary" (click)="menuItem(side, side.name, 'side', side.prices.big)">Beställ stor</button>
+      <button mat-stroked-button color="primary" (click)="menuItem(side, side.name, 'side', side.prices.small)">Beställ liten</button>
     </mat-card-actions>
   </mat-card>
   </div>
   
+  <h3>Dipps</h3>
   <div class="cards" >
     <mat-card class="cardContainer" *ngFor="let dipp of menu.dipps">
     <mat-card-header >
       <mat-card-title class="cardTitle">{{ dipp.name }}</mat-card-title>
     </mat-card-header>
     <mat-card-content class="cardContent">
-      <p> {{ dipp.price }}</p>
+      <p> {{ dipp.price }} :-</p>
     </mat-card-content>
     <mat-card-actions class="cardActions">
-      <button mat-raised-button color="primary" (click)="menuItem(dipp, dipp.name, 'dipp', dipp.price)">Beställ</button>
+      <button mat-stroked-button color="primary" (click)="menuItem(dipp, dipp.name, 'dipp', dipp.price)">Beställ</button>
     </mat-card-actions>
   </mat-card>
   </div>

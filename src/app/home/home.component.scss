@@ -24,6 +24,21 @@
   }
 
 
+h1, h2{
+  font-weight: 600;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}  
+h3{
+  width: fit-content;
+  margin: 0 auto;
+  font-size: 2em;
+  font-weight: 600;
+  color: #005f73;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 .cards{
     width: 80%;
     margin: 5% auto;
@@ -66,16 +81,19 @@
     }
   
     .cardActions {
-      
+      button{
+        margin-bottom: 3%;
+      }
+    
       display: flex;
-      justify-content: flex-end;
-      padding: 8px;
+      flex-direction: column;
+      justify-content: space-between;
     }
   }
   //shopping cart
   .cart{
     width: fit-content;
-    margin: 0 auto;
+    margin-left: 1%;
     position: sticky;
     top: 10%; 
     z-index: 999;

@@ -8,6 +8,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import { RouterLink } from '@angular/router';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-home',
@@ -32,7 +33,7 @@ export class HomeComponent {
   }[] = [];
 
 
-  constructor(private menuService: MenuService){}
+  constructor(private menuService: MenuService, private _snackBar: MatSnackBar){}
   
 
 
@@ -51,7 +52,6 @@ export class HomeComponent {
     const storedItems =localStorage.getItem("items");
     if(storedItems){
       this.selectedItems = JSON.parse(storedItems);
-      console.log(this.selectedItems);
     }
   }
   
@@ -80,7 +80,17 @@ export class HomeComponent {
     localStorage.setItem("items", JSON.stringify(this.selectedItems));
     this.getSavedItems();
   }
+
+    this.openSnackBar(`${itemName} har lagts till`);
   }
+
+  /* snackBar */
+  openSnackBar(message: string) {
+    this._snackBar.open(message, "X", {
+      duration: 5000
+    });
+  }
+
 }
 
 

@@ -7,12 +7,13 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatStepperModule} from '@angular/material/stepper';
 import { Order } from '../models/order';
 import { OrderService } from '../services/order.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-order',
   standalone: true,
   imports: [CommonModule, MatButtonModule, MatStepperModule,
-    FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule],
+    FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, RouterLink],
   templateUrl: './order.component.html',
   styleUrl: './order.component.scss'
 })

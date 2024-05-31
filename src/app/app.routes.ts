@@ -7,5 +7,5 @@ export const routes: Routes = [
     {path:"home", component: HomeComponent},
     {path:"order", component: OrderComponent},
     {path: "", redirectTo: "home", pathMatch: "full"},
-    /* {path: "**", component: NotfoundComponent} */
+    {path: "**", component: HomeComponent}
 ];

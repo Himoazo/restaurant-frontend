@@ -12,8 +12,15 @@
 </div>
 }
 
-@if(selectedItems){
+
+@if(selectedItems && selectedItems.length > 0){
   <div class="total-cost"> Totalt: {{ totalCost() }} kr</div>
+}
+
+@if(selectedItems && selectedItems.length == 0){
+  <div class="total-cost" id="empty"> <p>Varukorgen är tom <br><br> Vill du lägga en beställning? </p> 
+    <span routerLink="/home" id="linkSpan">Beställ </span>
+  </div>
 }
 </div>
 
