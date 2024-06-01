@@ -7,7 +7,7 @@ import { Order } from '../models/order';
   providedIn: 'root'
 })
 export class OrderService {
-  private url: string = "http://127.0.0.1:3000/api/orders";
+  private url: string = "https://backend-project-production-f507.up.railway.app/api/orders";
   constructor(private http: HttpClient) { }
 
   //Place order

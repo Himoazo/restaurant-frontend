@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ContactService {
   
-  private url: string = "http://127.0.0.1:3000/api/contact/";
+  private url: string = "https://backend-project-production-f507.up.railway.app/api/contact/";
 
   constructor(private http: HttpClient) { }
 

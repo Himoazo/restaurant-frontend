@@ -8,7 +8,7 @@ import {Menu, Hamburger, Side, Dipp} from '../models/meal';
 })
 export class MenuService {
 
-  private url: string = "http://127.0.0.1:3000/api/";
+  private url: string = "https://backend-project-production-f507.up.railway.app/api/";
   constructor(private http: HttpClient) { }
 
   getMeals(): Observable<Menu> {
