@@ -28,8 +28,8 @@
 
 
 <div id="step" *ngIf="selectedItems && selectedItems.length > 0">
-  <mat-stepper orientation="vertical" [linear]="isLinear" #stepper class="mat-stepper">
-    <mat-step [stepControl]="customerName" class="mat-step-header">
+  <mat-stepper orientation="vertical" [linear]="isLinear" #stepper class="mat-stepper" aria-label="Beställnings steg">
+    <mat-step [stepControl]="customerName" class="mat-step-header" aria-label="Beställnings steg 1">
       <form [formGroup]="customerName" class="stepForm">
         <ng-template matStepLabel>Vad heter du?</ng-template>
         <mat-form-field>
@@ -41,7 +41,7 @@
         </div>
       </form>
     </mat-step>
-    <mat-step [stepControl]="customerEmail" class="mat-step-header">
+    <mat-step [stepControl]="customerEmail" class="mat-step-header" aria-label="Beställnings steg 2">
       <form [formGroup]="customerEmail" class="stepForm">
         <ng-template matStepLabel>vad har du för mejladress?</ng-template>
         <mat-form-field>
