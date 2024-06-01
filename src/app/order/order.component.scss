@@ -15,6 +15,8 @@ h2{
     /* item */
     .item {
       margin-bottom: 1rem;
+      width: 30vw;
+      text-align: center;
       padding: 1rem;
       border: 1px solid #ddd;
       border-radius: 0.5rem;
@@ -56,9 +58,11 @@ h2{
   
   /* Stepper */
   #step{
-    background-color: rebeccapurple;
-    width: fit-content;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* width: fit-content;
+    margin: 0 auto; */
   }
   
   .mat-stepper {
@@ -98,11 +102,13 @@ h2{
   }
   
   /* Kvitto */
+  
   .kvitto {
-    background-color: beige;
+    background-color: white;
     margin: 2rem auto;
-    max-width: 600px;
-    text-align: center;
+    margin-left: -1;
+    width: 100%;
+    text-align: left;
   
     h3 {
       font-size: 1.2rem;
@@ -115,3 +121,8 @@ h2{
     }
   }
   
+  @media only screen and (max-width: 800px ){
+    .item {
+      min-width: 70%;
+    }
+  }

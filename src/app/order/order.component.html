@@ -3,7 +3,7 @@
   @if(selectedItems){
   <div *ngFor="let item of selectedItems" class="item">
     <h3> {{item.itemName}} </h3>
-    <p> {{item.price}} X {{item.quantity}} </p>
+    <p> {{item.price}}kr X {{item.quantity}} </p>
     <div>
         <button (click)="increment(item)">+</button>
         {{item.quantity}}
