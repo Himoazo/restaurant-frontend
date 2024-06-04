@@ -1,4 +1,4 @@
-
+//Hero section
 .intro {
     display: flex;
     align-items: center; 
@@ -23,7 +23,7 @@
     
   }
 
-
+//Headers
 h1, h2{
   font-weight: 600;
   color: #333;
@@ -39,6 +39,8 @@ h3{
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+
+//Meals
 .cards{
     width: 80%;
     margin: 5% auto;
@@ -128,7 +130,7 @@ h3{
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-
+//Media queries
   @media screen and (max-width: 800px) {
     .intro{
         background-color: white;
